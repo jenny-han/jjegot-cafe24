@@ -1,5 +1,22 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
     "express": "^4.18.2"
-  }
+  },
+  "name": "jjegot_cafe24",
+  "version": "1.0.0",
+  "main": "web.js",
+  "homepage" : "jjegot.cafe24app.com",
+  "scripts": {
+    "start": "node ./web.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jjegot@jjegot.cafe24app.com:jjegot_jjegot"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
