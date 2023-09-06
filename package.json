@@ -7,7 +7,7 @@
   "name": "jjegot_cafe24",
   "version": "1.0.0",
   "main": "web.js",
-  "homepage" : "jjegot.cafe24app.com",
+  "homepage" : "http://jjegotseller.cafe24app.com",
   "scripts": {
     "start": "node ./web.js",
     "test": "echo \"Error: no test specified\" && exit 1"
