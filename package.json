@@ -1,15 +1,12 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2"
-  },
   "name": "jjegot_cafe24",
   "version": "1.0.0",
   "main": "web.js",
-  "homepage" : "http://jjegotseller.cafe24app.com",
+  "homepage": "http://jjegotseller.cafe24app.com",
   "scripts": {
-    "start": "node ./web.js",
+    "start": "nodemon ./web.js",
+    "client" : "cd client && npm run start",
+    "build" : "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +15,14 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
