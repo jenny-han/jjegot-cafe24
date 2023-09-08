@@ -4,7 +4,7 @@ const path = require('path');
 const app = express()
 const PORT = 8001
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 const cors = require('cors');
 
@@ -16,8 +16,8 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html')
-  // res.sendFile(path.join(__dirname,'/client/build/index.html'))
+  // res.sendFile('index.html')
+  res.sendFile(path.join(__dirname,'/client/build/index.html'))
 })
 // app.get('/', (req, res) => {
 //   res.sendFile(path.join(__dirname, '/src/index'))
