@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.529ba968.css",
-    "main.js": "/static/js/main.15990c93.js",
+    "main.css": "/static/css/main.2d0ab8a2.css",
+    "main.js": "/static/js/main.6e589bda.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/jjegot_logo.png": "/static/media/jjegot_logo.fb411cdcc4c99353b7ee.png",
+    "static/media/jjegot-seller-logo.png": "/static/media/jjegot-seller-logo.699b0f4901876b3aa070.png",
     "static/media/hidden_pw.png": "/static/media/hidden_pw.a81cfb08e8b44aba3209.png",
     "static/media/view_pw.png": "/static/media/view_pw.0b5c67b9c9c6e2b4b7d1.png",
     "index.html": "/index.html",
-    "main.529ba968.css.map": "/static/css/main.529ba968.css.map",
-    "main.15990c93.js.map": "/static/js/main.15990c93.js.map",
+    "main.2d0ab8a2.css.map": "/static/css/main.2d0ab8a2.css.map",
+    "main.6e589bda.js.map": "/static/js/main.6e589bda.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.529ba968.css",
-    "static/js/main.15990c93.js"
+    "static/css/main.2d0ab8a2.css",
+    "static/js/main.6e589bda.js"
   ]
 }
