@@ -20,7 +20,8 @@
     color:#555;
     transition: .2s ease-in-out;
 }
-input, label {
+.form-div .input-form input, 
+.form-div .input-form label {
     font-size: 1em;
     width: 450px;
     height: 55px;
@@ -38,6 +39,10 @@ input, label {
 .form-box:valid {
     border: 2px solid #1A56CE;
     border-radius: 50px;
+}
+
+.form-box:focus {
+    background-color: #f4f8ff;
 }
 
 
@@ -138,11 +143,39 @@ input[type=checkbox] + label {
     cursor: pointer; 
     padding-left: 2.5em; 
     background-repeat: no-repeat;
+    background-size: contain;
     background-image: url('../assets//checked_f.png');
 }
 input[type=checkbox]:checked + label {
+    
     background-image: url('../assets/checked_t.png');
 }
 /* input[type=checkbox]:disabled + label {
     background-image: url('./img/checker-disabled.svg');
 } */
+
+.agree-form p {
+    line-height: 1.5;
+}
+
+.agree-div {
+    padding:30px;
+    border:  1px solid #8E8E8E;
+    border-radius: 15px;
+    box-sizing: border-box;
+    
+}
+
+.agree-list {
+    height: 40px;
+
+}
+
+.agree-list label {
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+
+}
