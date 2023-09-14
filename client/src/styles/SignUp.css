@@ -168,7 +168,7 @@ input[type=checkbox]:checked + label {
 
 .agree-list {
     height: 40px;
-
+    position: relative;
 }
 
 .agree-list label {
@@ -179,3 +179,58 @@ input[type=checkbox]:checked + label {
     align-items: center;
 
 }
+
+.btn-contents{
+    position: absolute;
+    right: -50px;
+    top:4px;
+    border: none;
+    width: 55px;
+    height: 30px;
+    background: url('../assets/arrow.png') no-repeat;
+}
+
+.modal-div{
+      /* 모달창 크기 */
+  width: 400px;
+  height: 480px;
+  overflow: hidden;
+  /* 최상단 위치 */
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+.modal-title {
+    border-bottom:1px solid #424242;
+}
+.modal-title p {
+    font-weight: 700;
+    text-align: center;
+}
+.btn-modal-close {
+    position:absolute;
+    right: 10px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: url("../assets/close.png") no-repeat;
+
+}
+.modal-contents {
+    margin:10px;
+    height: 400px;
+    overflow: scroll;  
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+      
+}
+.modal-contents::-webkit-scrollbar {
+    display: none;
+  }
