@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import agreezip from '../store/Agreement.json'
+import React, { useRef } from 'react';
 import useOutsideClick from '../hooks/useOutsideClick'
-// import { useOutsideClick } from '@chakra-ui/react'
 
 
 const SignUpAgreeModal = (props) => {
-    const {name, setModalOpen} = props;
-    const [title, setTitle] = useState(agreezip[name].title)
-    const [contents, setContents] = useState(agreezip[name].contents)    
-   
+    const {title, contents, setModalOpen} = props;
+
     const closeModal = () => {
         setModalOpen(false)
     }

@@ -1,45 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SignupAgreeBox from './SignupAgreeBox';
+import { Agreemets } from '../store/Agreement';
 
-const SignUpAgree = () => {
+function SignUpAgree() {
 
-    useEffect = () => {
-        
-    }
-    const [checklist, setChecklist] = useState([])
     const [agreeAll, setAgreeAll] = useState(false)
-    const [agreeFourteen, setAgreeFourteen] = useState(false)
-    const [agreeService, setAgreeService] = useState(false)
-    const [agreePayment, setAgreePayment] = useState(false)
-    const [agreePersonal, setAgreePersonal] = useState(false)
-    const [agreeMarketing, setAgreeMarketing] = useState(false)
-
+    const [isCheck, setIsCheck] = useState([]);
+    const [list, setlist] = useState(Agreemets)
 
     const handleAgreeAll = (e) => {
-        setAgreeAll(e.target.value)
+        setAgreeAll(e.target.checked)
+        setIsCheck(list.map(li => li.id));
+        if (agreeAll) {
+          setIsCheck([]);
+        }
     }
 
-    const handleAgreeFourTeen  = (e) => {
-        setAgreeFourteen(e.target.value)
+  const handleClick = e => {
+    const { id, checked } = e.target;
+    setIsCheck([...isCheck, id]);
+    
+    //체크 해제 하는 경우
+    if (!checked) {
+      setIsCheck(isCheck.filter(item => item !== id));
+      setAgreeAll(false)
     }
-    const handleAgreeService  = (e) => {
-        setAgreeService(e.target.value)
+    else{
+        //  check 시 전체 항목에 체크하게 되는 경우
+        if(isCheck.length === list.length -1) setAgreeAll(true)
     }
-    const handleAgreePayment = (e) => {
-        setAgreePayment(e.target.value)
-    }
-    const handleAgreePersonal = (e) => {
-        setAgreePersonal(e.target.value)
-    }
-    const handleAgreeMarketing = (e) => {
-        setAgreeMarketing(e.target.value)
-    }
+    
+  };
 
+ 
+
+    const agreeList = list.map(({id, name, title, contents, require})=> {
+        return (
+            <SignupAgreeBox id={id} key={id} name={name} title={title} contents={contents} onChange ={handleClick} value={isCheck.includes(id)} isRequired={require} />
+        )
+    })
 
     return (
         <div className='agree-form'>
             <div>
-                <input type="checkbox" id='allagree' name='agreeAll' value={agreeAll} onChange={handleAgreeAll}></input>
+                <input type="checkbox" id='allagree' name='agreeAll' checked={agreeAll} onChange={handleAgreeAll}></input>
                 <label htmlFor='allagree' className='allagree-label'>전체동의</label>
             </div>
             <p>
@@ -47,12 +51,7 @@ const SignUpAgree = () => {
                 • 선택 항목에 동의하지 않아도 서비스 이용이 가능합니다.
             </p>
             <div className='agree-div'>
-                <SignupAgreeBox id="agree14" name="agreeFourteen" value={agreeFourteen} onChange={handleAgreeFourTeen} text="[필수] 만 14세 이상입니다" />
-                <SignupAgreeBox id="agreeservice" name="agreeService" value={agreeService} onChange = {handleAgreeService} text="[필수] 자재이곳 서비스 이용약관 - 사업자용" />
-                <SignupAgreeBox id="agreepay" name="agreePayment" value={agreePayment} onChange = {handleAgreePayment} text="[필수] 전자금융거래 이용 약관" />
-                <SignupAgreeBox id="agreepersonal" name="agreePersonal" value={agreePersonal} onChange = {handleAgreePersonal} text="[필수] 개인정보 수집 및 이용 동의" />
-                <SignupAgreeBox id="agreemak" name="agreeMarketing" value={agreeMarketing} onChange = {handleAgreeMarketing} text="[선택] 광고 및 이벤트 목적의 개인정보 수집 및 이용 동의" />
-
+                { agreeList }
             </div>
 
         </div>
