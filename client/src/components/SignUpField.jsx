@@ -14,20 +14,31 @@ const SignUpField = () => {
     // const [phoneConfirm, setPhoneConfirm] = useState("")
     
     const [submit, setSubmit] = useState(false)
-    const [error, setError] = useState(false)
 
 
     const handleUserId = (e) => {
-        setUserId(e.target.value);
+        let value = e.target.value
+        //영문, 숫자만 입력 가능.
+        value = value.replace(/[^A-Za-z0-9]/ig, '')
+        setUserId(value);
     }
     const handlePassword = (e) => {
-        setPassword(e.target.value);
+        let value = e.target.value
+        //영문, 숫자, 특수문자 만 입력 가능.
+        value = value.replace(/[^a-zA-Z0-9!@#$%^&*=+]/ig, '')
+        setPassword(value)
     }
     const handlePasswordConfirm = (e) => {
-        setPasswordConfirm(e.target.value);
+        let value = e.target.value
+        //영문, 숫자, 특수문자 만 입력 가능.
+        value = value.replace(/[^a-zA-Z0-9!@#$%^&*=+]/ig, '')
+        setPasswordConfirm(value);
     }
     const handleUserName = (e) => {
-        setuserName(e.target.value);
+        let value = e.target.value
+        //영문, 한글만 입력 가능.
+        value = value.replace(/[^A-Za-z][^ㄱ-ㅣ가-힣]/ig, '')
+        setuserName(value);
     }
     const handleEmail = (e) => {
         setEmail(e.target.value);

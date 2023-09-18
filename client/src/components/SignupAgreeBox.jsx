@@ -24,7 +24,7 @@ function SignupAgreeBox(props) {
     return (
         <div className='agree-list'>
             <input type="checkbox" id={id} name={name} checked={value} onChange={onChange} 
-            required={isRequired}></input>
+            ></input>
             <label htmlFor={id}>{text}</label>
 
              { name !== 'agreeFourteen' && <span onClick={showModal} className='btn-contents'></span> }

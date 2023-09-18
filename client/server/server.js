@@ -34,12 +34,29 @@ app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
 });
 
+
 app.get("/db/customer", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     
     const sqlQuery = "SELECT * FROM CUSTOMER";
 
     db.query(sqlQuery, (err, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/db/customer/insert", (req, res) => {
+    // res.header("Access-Control-Allow-Origin", "*");
+    const userId = req.body.userId;
+    const password = req.body.password;
+    const userName = req.body.name;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const agreeMarketing = req.body.agreeMarketing;
+    
+    const sqlQuery = "INSERT INTO CUSTOMER (userId, password, userName, email, phone, agreeMarketing) VALUES(?, ?, ?, ?, ?, ? );";  
+    
+    db.query(sqlQuery, [userId,password,userName,email,phone,agreeMarketing], (err, result) => {
         res.send(result);
     });
 });
