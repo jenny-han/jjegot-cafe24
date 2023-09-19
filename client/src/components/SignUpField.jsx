@@ -41,10 +41,17 @@ const SignUpField = () => {
         setuserName(value);
     }
     const handleEmail = (e) => {
-        setEmail(e.target.value);
+        setEmail(e.target.value)
+    }
+    const checkEmail = (e) =>{
+        let emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/ig
+        if(emailcheck.test(e.target.value)) setEmail(e.target.value)
+        else setEmail('')
     }
     const handlePhone = (e) => {
-        setPhone(e.target.value);
+        let value = e.target.value;
+        value = value.replace(/^\d{3}-\d{3,4}-\d{4}$/ig, '')
+        setPhone(value);
     }
 
 
@@ -71,7 +78,7 @@ const SignUpField = () => {
                 <label htmlFor='uName'>이름</label>
             </div>
             <div className='input-form'>
-                <input type="email" id='em' name='email' value={email} onChange={handleEmail} className='form-box' 
+                <input type="email" id='em' name='email' value={email} onChange={handleEmail} onBlur={checkEmail} className='form-box' 
                       required></input>
                 <label htmlFor='em'>이메일</label>
             </div>
