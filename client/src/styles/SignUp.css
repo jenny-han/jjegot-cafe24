@@ -234,3 +234,9 @@ input[type=checkbox]:checked + label {
 .modal-contents::-webkit-scrollbar {
     display: none;
   }
+
+.icon-pw-show {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}

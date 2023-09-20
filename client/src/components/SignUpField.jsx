@@ -11,6 +11,10 @@ const SignUpField = () => {
     const [userName, setuserName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
+    const [passwordType, setPasswordType] = useState('password')
+    const [passwordType2, setPasswordType2] = useState('password')
+
+
     // const [phoneConfirm, setPhoneConfirm] = useState("")
     
     const [submit, setSubmit] = useState(false)
@@ -50,9 +54,25 @@ const SignUpField = () => {
     }
     const handlePhone = (e) => {
         let value = e.target.value;
-        value = value.replace(/^\d{3}-\d{3,4}-\d{4}$/ig, '')
+        value = value.replace(/[^0-9]/ig, '')
         setPhone(value);
     }
+    const togglePassword =()=>{
+            if(passwordType === "password") {
+                setPasswordType("text")
+                return;
+               }
+            setPasswordType("password")
+
+      }
+      const togglePassword2 =()=>{
+        if(passwordType2 === "password") {
+            setPasswordType2("text")
+            return;
+           }
+        setPasswordType2("password")
+
+  }
 
 
     return (
@@ -63,14 +83,20 @@ const SignUpField = () => {
                 <label htmlFor='uid'>아이디 (영문, 숫자 최대 20자) </label>
             </div>
             <div className='input-form'>
-                <input type="password" id="pw" name='password' value={password} onChange={handlePassword} className='form-box' 
+                <input type={passwordType} id="pw" name='password' value={password} onChange={handlePassword} className='form-box' 
                         autoComplete='off' maxLength={15} required></input>
                 <label htmlFor='pw'>비밀번호 (영문, 숫자, 특수문자 포함 8-15자리)</label>
+                <span className='icon-pw-show' onClick={togglePassword}>
+                { passwordType==="password"? <i className="bi pw-hidden"></i> :<i className="bi pw-view"></i> }
+                </span>
             </div>
             <div className='input-form'>
-                <input type="password" id='pwConfirm' name='passwordConfirm' value={passwordConfirm} onChange={handlePasswordConfirm} className='form-box' 
-                        autoComplete='off'required></input>
+                <input type={passwordType2} id='pwConfirm' name='passwordConfirm' value={passwordConfirm} onChange={handlePasswordConfirm} className='form-box' 
+                        autoComplete='off' maxLength={15} required></input>
                 <label htmlFor='pwConfirm'>비밀번호 확인</label>
+                <span className='icon-pw-show' onClick={togglePassword2}>
+                { passwordType2==="password"? <i className="bi pw-hidden"></i> :<i className="bi pw-view"></i> }
+                </span>
             </div>
             <div className='input-form'>
                 <input type="text" id='uName'name='userName' value={userName} onChange={handleUserName} className='form-box' 
@@ -84,7 +110,7 @@ const SignUpField = () => {
             </div>
             <div className='input-form'>
                 <input type="text" id='pnum' name='phone' value={phone} onChange={handlePhone} className='form-box' 
-                        required></input>
+                        maxLength={11} required></input>
                 <label htmlFor='pnum'>휴대폰번호('-' 제외)</label>
             </div> 
 
