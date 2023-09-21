@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     font-size: 15pt;
+    position: relative;
 }
 
 .input-div label {
@@ -26,8 +27,8 @@
 }
 
 .icon-pw {
-    width: 10%;
-    display: inline-block;
+    position: absolute;
+    right: 30px;
 }
 
 .bi {

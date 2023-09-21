@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Timer from '../utils/timer';
-import SignUpAgree from './SignUpAgree';
+import SignUpInput from './SignInput';
 import SignupPhoneCertification from './SignupPhoneCertification';
 
 const SignUpField = () => {
@@ -11,12 +10,9 @@ const SignUpField = () => {
     const [userName, setuserName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
-    const [passwordType, setPasswordType] = useState('password')
-    const [passwordType2, setPasswordType2] = useState('password')
-
 
     // const [phoneConfirm, setPhoneConfirm] = useState("")
-    
+
     const [submit, setSubmit] = useState(false)
 
 
@@ -47,9 +43,9 @@ const SignUpField = () => {
     const handleEmail = (e) => {
         setEmail(e.target.value)
     }
-    const checkEmail = (e) =>{
+    const checkEmail = (e) => {
         let emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/ig
-        if(emailcheck.test(e.target.value)) setEmail(e.target.value)
+        if (emailcheck.test(e.target.value)) setEmail(e.target.value)
         else setEmail('')
     }
     const handlePhone = (e) => {
@@ -57,62 +53,21 @@ const SignUpField = () => {
         value = value.replace(/[^0-9]/ig, '')
         setPhone(value);
     }
-    const togglePassword =()=>{
-            if(passwordType === "password") {
-                setPasswordType("text")
-                return;
-               }
-            setPasswordType("password")
-
-      }
-      const togglePassword2 =()=>{
-        if(passwordType2 === "password") {
-            setPasswordType2("text")
-            return;
-           }
-        setPasswordType2("password")
-
-  }
-
 
     return (
         <div className='field-div'>
-            <div className='input-form'>
-                <input type="text" name='userId' id='uid' value={userId} onChange={handleUserId} className='form-box' 
-                        maxLength={20} required></input>
-                <label htmlFor='uid'>아이디 (영문, 숫자 최대 20자) </label>
-            </div>
-            <div className='input-form'>
-                <input type={passwordType} id="pw" name='password' value={password} onChange={handlePassword} className='form-box' 
-                        autoComplete='off' maxLength={15} required></input>
-                <label htmlFor='pw'>비밀번호 (영문, 숫자, 특수문자 포함 8-15자리)</label>
-                <span className='icon-pw-show' onClick={togglePassword}>
-                { passwordType==="password"? <i className="bi pw-hidden"></i> :<i className="bi pw-view"></i> }
-                </span>
-            </div>
-            <div className='input-form'>
-                <input type={passwordType2} id='pwConfirm' name='passwordConfirm' value={passwordConfirm} onChange={handlePasswordConfirm} className='form-box' 
-                        autoComplete='off' maxLength={15} required></input>
-                <label htmlFor='pwConfirm'>비밀번호 확인</label>
-                <span className='icon-pw-show' onClick={togglePassword2}>
-                { passwordType2==="password"? <i className="bi pw-hidden"></i> :<i className="bi pw-view"></i> }
-                </span>
-            </div>
-            <div className='input-form'>
-                <input type="text" id='uName'name='userName' value={userName} onChange={handleUserName} className='form-box' 
-                        required></input>
-                <label htmlFor='uName'>이름</label>
-            </div>
-            <div className='input-form'>
-                <input type="email" id='em' name='email' value={email} onChange={handleEmail} onBlur={checkEmail} className='form-box' 
-                      required></input>
-                <label htmlFor='em'>이메일</label>
-            </div>
-            <div className='input-form'>
-                <input type="text" id='pnum' name='phone' value={phone} onChange={handlePhone} className='form-box' 
-                        maxLength={11} required></input>
-                <label htmlFor='pnum'>휴대폰번호('-' 제외)</label>
-            </div> 
+            <SignUpInput type="text" id="uid" name='userId' value={userId} handleChange={handleUserId}
+                labelTxt="아이디 (영문, 숫자 최대 20자)" max="20" isRequired={true} />
+            <SignUpInput type="password" id="pw" name='password' value={password} handleChange={handlePassword}
+                labelTxt="비밀번호 (영문, 숫자, 특수문자 포함 8-15자리)" max="15" auto="off" isRequired={true} />
+            <SignUpInput type="password" id="pwC" name='passwordConfirm' value={passwordConfirm} handleChange={handlePasswordConfirm}
+                labelTxt="비밀번호 확인" max="15" auto="off" isRequired={true} />
+            <SignUpInput type="text" id="uName" name='userName' value={userName} handleChange={handleUserName}
+                labelTxt="이름" max="" auto="off" isRequired={true} />
+            <SignUpInput type="email" id="em" name='email' value={email} handleChange={handleEmail} handleBlur={checkEmail}
+                labelTxt="이메일" max="" isRequired={true} />
+            <SignUpInput type="text" id="pnum" name='phone' value={phone} handleChange={handlePhone}
+                labelTxt="휴대폰번호('-' 제외)" max="11" isRequired={true} />
 
             {/* 휴대폰 인증번호를 통한 회원가입 */}
             {/* <SignupPhoneCertification /> */}
