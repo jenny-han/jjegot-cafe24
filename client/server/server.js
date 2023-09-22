@@ -9,7 +9,7 @@ const api = require('../src/services/api')
 
 
 const PORT = process.env.PORT || 4000;
- 
+ console.log(process.env.REACT_APP_MYSQL_SERVER_HOST)
 // MySQL 연결
 const db = mysql.createPool({
     host: "jjegotseller.cafe24app.com", // 호스트

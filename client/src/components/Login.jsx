@@ -38,17 +38,17 @@ const Login = () => {
         <div>
             <div className='input-div'>
                 <label htmlFor='input_id'>아이디</label>
-                <input type="text" name='input_id' value={inputId} onChange={handleInputId} className='input-box'></input>
+                <input type="text" id='input_id' value={inputId} onChange={handleInputId} className='input-box'></input>
             </div>
             <div className='input-div'>
                 <label htmlFor='input_pw'>비밀번호</label>
-                <input type={passwordType} name='input_pw' value={inputPw} onChange={handleInputPw} className='input-box'></input>
+                <input type={passwordType} id='input_pw' value={inputPw} onChange={handleInputPw} className='input-box'></input>
                <span className='icon-pw' onClick={togglePassword}>
                { passwordType==="password"? <i className="bi pw-hidden"></i> :<i className="bi pw-view"></i> }
                </span>
            </div>
             <div className='login-div'>
-                <button type="button" className='login-btn' onClick={onClickLogin} >로그인</button>
+                <button type="submit" className='login-btn' onClick={onClickLogin} >로그인</button>
             </div>
             <div className='line-block'>
                 <div><a href='#'>아이디찾기</a></div>

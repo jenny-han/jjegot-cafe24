@@ -12,7 +12,7 @@ const SignUpForm = () => {
     const handleSignup = (e) => {
         alert("회원가입 button")
         // console.dir(e.target.elements)
-        axios.post("http://localhost:4000/db/customer/insert", 
+        axios.post(`${process.env.REACT_APP_SERVER}/db/customer/insert`, 
         getParam(e.target.elements)
         ).then((res) => {
             console.log(res);
