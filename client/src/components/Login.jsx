@@ -32,6 +32,8 @@ const Login = () => {
 
     const onClickLogin = () => {
         alert("로그인 버튼 click")
+    
+    
     }
 
     return (

@@ -243,6 +243,14 @@ input[type=checkbox]:checked + label {
     right: 30px;
     top: 20px;
 }
+
+.error {
+    position: relative;
+    display: flex;
+    margin: 0 20px;
+    top: -20px;
+}
 .error-txt{
-    color:red
+    color:red;
+    font-size: .8em;
 }

@@ -10,11 +10,22 @@ const SignUpField = () => {
     const [userName, setuserName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
+    const [errorMsg, setErrorMsg] = useState("")
+    const [error, setError] = useState(false);
 
     // const [phoneConfirm, setPhoneConfirm] = useState("")
 
     const [submit, setSubmit] = useState(false)
 
+
+    useEffect(() => {
+        //비밀번호 확인
+        ((password && passwordConfirm ) && password !== passwordConfirm) ? 
+            setErrorMsg("비밀번호가 일치하지 않습니다.") : 
+            setErrorMsg('')
+
+        errorMsg !== "" ? setError(true) : setError(false);
+    })
 
     const handleUserId = (e) => {
         let value = e.target.value
@@ -57,17 +68,25 @@ const SignUpField = () => {
     return (
         <div className='field-div'>
             <SignUpInput type="text" id="uid" name='userId' value={userId} handleChange={handleUserId}
-                labelTxt="아이디 (영문, 숫자 최대 20자)" max="20" isRequired={true} />
+                labelTxt="아이디 (영문, 숫자 최대 20자)" max="20" isRequired={true}/>
             <SignUpInput type="password" id="pw" name='password' value={password} handleChange={handlePassword}
                 labelTxt="비밀번호 (영문, 숫자, 특수문자 포함 8-15자리)" max="15" auto="off" isRequired={true} />
             <SignUpInput type="password" id="pwC" name='passwordConfirm' value={passwordConfirm} handleChange={handlePasswordConfirm}
                 labelTxt="비밀번호 확인" max="15" auto="off" isRequired={true} />
+            { error && 
+                <div className='error'> 
+                <span className='error-txt'><br />{errorMsg}</span>
+                </div>
+             }
+
             <SignUpInput type="text" id="uName" name='userName' value={userName} handleChange={handleUserName}
                 labelTxt="이름" max="" auto="off" isRequired={true} />
             <SignUpInput type="email" id="em" name='email' value={email} handleChange={handleEmail} handleBlur={checkEmail}
-                labelTxt="이메일" max="" isRequired={true} />
+                labelTxt="이메일" max="" isRequired={true}/>
             <SignUpInput type="text" id="pnum" name='phone' value={phone} handleChange={handlePhone}
                 labelTxt="휴대폰번호('-' 제외)" max="11" isRequired={true} />
+            
+           
 
             {/* 휴대폰 인증번호를 통한 회원가입 */}
             {/* <SignupPhoneCertification /> */}

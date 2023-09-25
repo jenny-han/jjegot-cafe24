@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const SignUpInput = (props) => {
     const { type, id, name, value, max, auto, handleChange, handleBlur, isRequired, labelTxt, errorMsg } = props;
-    const [error, setError] = useState(false)
     const [inputType, setInputType] = useState(type)
 
     const togglePassword = () => {
@@ -33,7 +32,6 @@ const SignUpInput = (props) => {
                 <span className='icon-pw-show' onClick={togglePassword}>
                     {inputType === "password" ? <i className="bi pw-hidden"></i> : <i className="bi pw-view"></i>}
                 </span>}
-            {error && <span className='error-txt'><br />{errorMsg}</span>}
         </div>
     );
 };

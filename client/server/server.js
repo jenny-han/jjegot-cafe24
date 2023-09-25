@@ -61,3 +61,14 @@ app.post("/db/customer/insert", (req, res) => {
         res.send(result);
     });
 });
+
+
+
+app.get("/db/customer/login", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    const sqlQuery = "SELECT password FROM CUSTOMER WHERE userId = (?);";
+    
+    db.query(sqlQuery,[],(err, result) => {
+        res.send(result);
+    });
+});
