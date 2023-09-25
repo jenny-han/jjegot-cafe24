@@ -9,6 +9,7 @@ const SignUpForm = () => {
 
     const handleSignup = (e) => {
         alert("회원가입 button")  
+        
         signup(e.target.elements)
     }
 

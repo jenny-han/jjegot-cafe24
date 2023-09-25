@@ -3,6 +3,10 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 function signup(ele) {
+    if(ele.password !== ele.passwordConfirm) {
+        alert("비밀번호가 일치하지 않습니다.")
+        return;
+    }
     axios.post(`${process.env.REACT_APP_SERVER}/db/customer/insert`, 
     getParam(ele)
     ).then((res) => {
