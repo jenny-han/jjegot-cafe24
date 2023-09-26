@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const SignUpInput = (props) => {
-    const { type, id, name, value, max, auto, handleChange, handleBlur, isRequired, labelTxt, errorMsg } = props;
+    const { type, id, name, value, max, auto, handleChange, handleBlur, isRequired, labelTxt, checkId } = props;
     const [inputType, setInputType] = useState(type)
 
     const togglePassword = () => {
@@ -11,6 +11,7 @@ const SignUpInput = (props) => {
         }
         setInputType("password")
     }
+  
 
     return (
         <div className='input-form'>
@@ -31,7 +32,13 @@ const SignUpInput = (props) => {
             {(id === "pw" || id === "pwC") &&
                 <span className='icon-pw-show' onClick={togglePassword}>
                     {inputType === "password" ? <i className="bi pw-hidden"></i> : <i className="bi pw-view"></i>}
-                </span>}
+                </span>
+                }
+               { id ==="uid" && 
+               <div className='btn_idConfirm' onClick={checkId}>
+                    <span>중복확인</span>
+                </div> }
+
         </div>
     );
 };

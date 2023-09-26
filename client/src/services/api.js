@@ -13,4 +13,10 @@ router.get('/signup', (req,res) => {
     res.send({data : 'data'})
 })
 
+
+
+router.get('/customer', (req, res) => {
+
+});
+
 module.exports = router;

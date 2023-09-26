@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import SignUpInput from './SignInput';
 import SignupPhoneCertification from './SignupPhoneCertification';
+import { signupCheckId } from '../services/customer'
+
 
 const SignUpField = () => {
 
@@ -25,6 +27,8 @@ const SignUpField = () => {
             setErrorMsg('')
 
         errorMsg !== "" ? setError(true) : setError(false);
+   
+   
     })
 
     const handleUserId = (e) => {
@@ -65,10 +69,29 @@ const SignUpField = () => {
         setPhone(value);
     }
 
+    //아이디 중복확인
+    const checkId = () => {
+        const cid = userId;
+        if(cid === "") {
+            alert("아이디를 입력해주세요!")
+           return;
+        }
+
+        console.log( signupCheckId(cid));
+        // console.log(check)
+        // if (check === "no") {
+        //     alert("사용중인 아이디입니다.");
+        //     setUserId('')
+        // }else {
+        //     alert("사용가능한 아이디 입니다")
+        //     // setUserId(cid)
+        // }
+    }
+
     return (
         <div className='field-div'>
             <SignUpInput type="text" id="uid" name='userId' value={userId} handleChange={handleUserId}
-                labelTxt="아이디 (영문, 숫자 최대 20자)" max="20" isRequired={true}/>
+                labelTxt="아이디 (영문, 숫자 최대 20자)" max="20" isRequired={true} checkId={checkId} />
             <SignUpInput type="password" id="pw" name='password' value={password} handleChange={handlePassword}
                 labelTxt="비밀번호 (영문, 숫자, 특수문자 포함 8-15자리)" max="15" auto="off" isRequired={true} />
             <SignUpInput type="password" id="pwC" name='passwordConfirm' value={passwordConfirm} handleChange={handlePasswordConfirm}

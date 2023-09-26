@@ -8,8 +8,7 @@ const SignUpForm = () => {
     const formRef = useRef(null);
 
     const handleSignup = (e) => {
-        alert("회원가입 button")  
-        
+        // alert("회원가입 button")  
         signup(e.target.elements)
     }
 

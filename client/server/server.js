@@ -5,11 +5,11 @@ const mysql   = require("mysql");
 const app = express();
 
 const api = require('../src/services/api')
-// app.use('/api', api)
+app.use('/api', api)
 
 
 const PORT = process.env.PORT || 4000;
- console.log(process.env.REACT_APP_MYSQL_SERVER_HOST)
+console.log(process.env.REACT_APP_MYSQL_SERVER_HOST)
 // MySQL 연결
 const db = mysql.createPool({
     host: "jjegotseller.cafe24app.com", // 호스트
@@ -17,7 +17,6 @@ const db = mysql.createPool({
     password: "jajae2got@",      // 데이터베이스 비밀번호
     database: "jjegot",  // 사용할 데이터베이스
 });
-
 
 
 app.use(cors({
@@ -69,6 +68,17 @@ app.get("/db/customer/login", (req, res) => {
     const sqlQuery = "SELECT password FROM CUSTOMER WHERE userId = (?);";
     
     db.query(sqlQuery,[],(err, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/db/customer/checkId", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+        //query 로 받아야함
+    const userId = req.query.userId;
+    const sqlQuery = "SELECT * FROM CUSTOMER WHERE userId = (?);";
+    db.query(sqlQuery,[userId],(err, result) => {
+
         res.send(result);
     });
 });
