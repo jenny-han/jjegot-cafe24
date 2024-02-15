@@ -6,6 +6,8 @@ const StyledButton = styled.button`
     font-size: 1rem;
     font-weight: bold;
 
+    margin-top: 2rem;
+
     cursor:pointer;
     padding: 0.25rem 1rem;
 
@@ -26,11 +28,11 @@ const StyledButton = styled.button`
 
     ${props => props.gray && 
         css`
-        background:#fffff; 
-        border-color:#8E8E8E;
-        &:hover {
-            background:#eeeeee80
-        }
+            background:#fffff; 
+            border-color:#8E8E8E;
+            &:hover {
+                background:#eeeeee80
+                }
         `}
 `;
 

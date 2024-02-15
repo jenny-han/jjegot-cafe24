@@ -262,7 +262,7 @@ input[type=checkbox]:checked + label {
     right: 0px;
     top:0px;
     width: 100px;
-    height: 63px;
+    height: 53px;
     border-radius: 0 50px 50px 0;
     background-color: #1A56CE;
     color: #f4f8ff;

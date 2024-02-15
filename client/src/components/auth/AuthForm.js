@@ -84,7 +84,7 @@ const AuthForm = ({type}) => {
             <StyledInput autoComplete='new-password' name = "passwordConfirm" placeholder='비밀번호 확인' type={passwordConfirmType}/>
         )}
 
-        <ButtonWithMarginTop fullWidth>로그인</ButtonWithMarginTop>
+        <ButtonWithMarginTop fullWidth >로그인</ButtonWithMarginTop>
       </form>
     </AuthFormBlock>
   );
