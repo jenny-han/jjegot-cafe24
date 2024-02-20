@@ -35,6 +35,9 @@
     display: inline-block;
     height: 20px;
     width: 20px;
+    position: absolute;
+    top: 0;
+    right: 1.2rem;
 }
 
 .pw-hidden{

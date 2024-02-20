@@ -1,23 +1,28 @@
 // express 모듈 호출
 const express = require('express');
+
 const cors = require('cors');
 const mysql = require('mysql');
 const app = express();
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 const api = require('../src/services/api');
 app.use('/api', api);
 
 const PORT = process.env.PORT || 4000;
-console.log('host', process.env.REACT_APP_MYSQL_SERVER_HOST);
+
+// const db = require('db')
+console.log('test', `${process.env.REACT_APP_MYSQL_SERVER_HOST}`);
+
 // MySQL 연결
-// const db = mysql.createPool({
-//     host: "jjegotseller.cafe24app.com", // 호스트
-//     user: "jjegot",      // 데이터베이스 계정
-//     password: "jajae2got@",      // 데이터베이스 비밀번호
-//     database: "jjegot",  // 사용할 데이터베이스
-// });
 const db = mysql.createPool({
   host: process.env.REACT_APP_MYSQL_SERVER_HOST,
+  database: process.env.REACT_APP_MYSQL_DATABASE,
+  user: process.env.REACT_APP_MYSQL_USER_NAME,
+  password: process.env.REACT_APP_MYSQL_PASSWORD,
+  port: 3306,
 });
 
 app.use(
@@ -86,3 +91,6 @@ app.get('/db/customer/checkId', (req, res) => {
     res.send(result);
   });
 });
+
+//test
+// app.get('/')

@@ -21,19 +21,18 @@ const StyledInput = styled.input`
   height: 45px;
   outline: none;
   padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
   &:focus {
     color: #1a56ce;
     border: 1px solid #1a56ce;
   }
   & + & {
-    margin-top: 0.8rem;
+    // margin-top: 0.8rem;
   }
 `;
 
 const ViewPassword = styled.span`
   position: relative;
-  top: -2rem;
-  right: -8rem;
   cursor: pointer;
 `;
 
@@ -57,8 +56,17 @@ const textMap = {
   login: '로그인',
   register: '회원가입',
 };
+/**
+ * 에러를 보여줍니다
+ */
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const [passwordType, setPasswordType] = useState('password');
   const [passwordConfirmType, setPasswordConfirmType] = useState('password');
 
@@ -79,11 +87,10 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
     setPasswordConfirmType('password');
   };
 
-  console.log(text);
   return (
     <AuthFormBlock>
       <h3>{text}</h3>
-      <form>
+      <form onSubmit={onSubmit}>
         <StyledInput
           autoComplete="userEmail"
           name="userEmail"
@@ -126,8 +133,9 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
             </ViewPassword>
           </>
         )}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
 
-        <ButtonWithMarginTop fullwidth="true">
+        <ButtonWithMarginTop $fullwidth={true}>
           {type === 'login' ? text : '가입하기'}
         </ButtonWithMarginTop>
       </form>
