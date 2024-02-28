@@ -4,7 +4,8 @@
   "main": "web.js",
   "homepage": "http://jjegotseller.cafe24app.com",
   "scripts": {
-    "start": "dotenv -e .env.development.local -- nodemon ./web.js",
+    "start": "node ./web.js",
+    "start:dev": "dotenv -e .env.development.local -- nodemon ./web.js",
     "dev": "cd client && npm run start:dev",
     "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
