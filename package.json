@@ -4,7 +4,7 @@
   "main": "web.js",
   "homepage": "http://jjegotseller.cafe24app.com",
   "scripts": {
-    "start": "node ./web.js",
+    "start": "dotenv -e .env.production.local -- node ./web.js",
     "start:dev": "dotenv -e .env.development.local -- nodemon ./web.js",
     "dev": "cd client && npm run start:dev",
     "build": "cd client && npm run build",

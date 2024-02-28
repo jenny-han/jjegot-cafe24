@@ -19,6 +19,7 @@ app.use(
 )
 
 app.get("/api/customer", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*")
   db.query("SELECT * FROM CUSTOMER", (error, results, fields) => {
     if (error) {
       console.error("Error fetching users:", error)
