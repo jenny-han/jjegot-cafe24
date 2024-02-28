@@ -31,24 +31,25 @@ const getParam = (d) => {
   });
 };
 
-function signupCheckId(id) {
-  axios
-    .get(`${process.env.REACT_APP_SERVER}/db/customer/checkId`, {
-      params: { userId: id },
-    })
-    .then((res) => {
-      // console.log(res)
-      if (res.data.length === 0) {
-        // alert("사용가능한 아이디 입니다")
-        return true;
-      } else {
-        // alert("사용중인 아이디입니다.");
-        return false;
-      }
-    })
-    .catch((e) => {
-      console.log(e);
-      alert('아이디 중복 확인 중 오류가 발생했습니다.');
-    });
+async function signupCheckId(id) {
+  try {
+    await axios
+      .get(`${process.env.REACT_APP_SERVER}/db/customer/checkId`, {
+        params: { userId: id },
+      })
+      .then((res) => {
+        // console.log(res.data.length);
+        if (res.data.length === 0) {
+          alert('사용가능한 아이디 입니다');
+          return true;
+        } else {
+          alert('사용중인 아이디입니다.');
+          return false;
+        }
+      });
+  } catch (e) {
+    console.log(e);
+    alert('아이디 중복 확인 중 오류가 발생했습니다.');
+  }
 }
 export { signup, signupCheckId };

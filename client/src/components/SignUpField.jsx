@@ -72,11 +72,10 @@ const SignUpField = () => {
       alert('아이디를 입력해주세요!');
       return;
     }
+
     if (signupCheckId(cid)) {
-      alert('사용가능한 아이디 입니다');
       setUserId(cid);
     } else {
-      alert('사용중인 아이디입니다. 다른 아이디를 입력해주세요.');
       setUserId('');
     }
   };

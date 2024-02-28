@@ -1,27 +1,40 @@
 const express = require("express")
 const path = require("path")
+const cors = require("cors")
+const bodyParser = require("body-parser")
+const db = require("./db")
 
 const app = express()
 const PORT = 8001
 
-const cors = require("cors")
-app.use(cors())
-
-const bodyParser = require("body-parser")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use(
+  cors({
+    origin: "*", // 출처 허용 옵션
+    credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
+    optionsSuccessStatus: 200, // 응답 상태 200으로 설정
+  })
+)
+
+app.get("/api/customer", (req, res) => {
+  db.query("SELECT * FROM CUSTOMER", (error, results, fields) => {
+    if (error) {
+      console.error("Error fetching users:", error)
+      res.status(500).send("Internal Server Error")
+    } else {
+      res.send(results)
+      console.log(results)
+    }
+  })
+})
+
 app.use(express.static(path.join(__dirname, "/client/build")))
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   // res.sendFile('index.html')
-  res.sendFile(path.join(__dirname, "/client/build/index.html"))
-})
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"))
-})
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })
 
 app.listen(PORT, () => {

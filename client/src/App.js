@@ -8,13 +8,13 @@ import DashBoardPage from './pages/DashBoardPage';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Mainpage />} />
+      <Route path="/" element={<DashBoardPage />} />
       <Route path="/signup" element={<SignUp />} />
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
 
-      <Route path="/dashboard" element={<DashBoardPage />} />
+      {/* <Route path="/dashboard" element={<DashBoardPage />} /> */}
     </Routes>
   );
 }

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const StyledButton = styled.button`
+const buttonStyle = css`
   border: none;
   border-radius: 30px;
   font-size: 1rem;
@@ -38,6 +39,33 @@ const StyledButton = styled.button`
     `}
 `;
 
-const Button = (props) => <StyledButton {...props} />;
+const linkBtnstyle = css`
+  background-color: #fff;
+  color: #555;
+  font-weight: normal;
+  font-size: 1rem;
+  pointer: cursor;
+
+  &:hover {
+    background-color: #fff;
+    text-decoration: underline;
+  }
+`;
+
+const StyledButton = styled.button`
+  ${buttonStyle}
+`;
+
+const StyledLink = styled(Link)`
+  ${linkBtnstyle}
+`;
+
+const Button = (props) => {
+  return props.to ? (
+    <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
+  ) : (
+    <StyledButton {...props} />
+  );
+};
 
 export default Button;
