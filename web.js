@@ -18,24 +18,11 @@ app.use(
   })
 )
 
-app.get("/api/customer", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  db.query("SELECT * FROM CUSTOMER", (error, results, fields) => {
-    if (error) {
-      console.error("Error fetching users:", error)
-      res.status(500).send("Internal Server Error")
-    } else {
-      res.send(results)
-      console.log(results)
-    }
-  })
-})
-
 app.use(express.static(path.join(__dirname, "/client/build")))
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   // res.sendFile('index.html')
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+  res.sendFile(path.join(__dirname, "client/build/index.html"))
 })
 
 app.listen(PORT, () => {
