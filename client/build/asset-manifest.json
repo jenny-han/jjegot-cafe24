@@ -1,19 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.ab35dc1a.css",
-    "main.js": "/static/js/main.3752bb3d.js",
+    "main.js": "/static/js/main.3111293c.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/homeCover.png": "/static/media/homeCover.4c54be17a064112b6c93.png",
+    "static/media/home_content.png": "/static/media/home_content.a909d2602fadee288440.png",
     "static/media/jjegot-seller-logo.png": "/static/media/jjegot-seller-logo.699b0f4901876b3aa070.png",
+    "static/media/jjegot_logo_w.png": "/static/media/jjegot_logo_w.55404f40abff7cc391f1.png",
     "static/media/jjegot_logo.png": "/static/media/jjegot_logo.fb411cdcc4c99353b7ee.png",
     "static/media/hidden_pw.png": "/static/media/hidden_pw.a81cfb08e8b44aba3209.png",
     "static/media/view_pw.png": "/static/media/view_pw.0b5c67b9c9c6e2b4b7d1.png",
     "index.html": "/index.html",
     "main.ab35dc1a.css.map": "/static/css/main.ab35dc1a.css.map",
-    "main.3752bb3d.js.map": "/static/js/main.3752bb3d.js.map",
+    "main.3111293c.js.map": "/static/js/main.3111293c.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab35dc1a.css",
-    "static/js/main.3752bb3d.js"
+    "static/js/main.3111293c.js"
   ]
 }
