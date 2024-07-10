@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm, register } from '../../modules/auth';
 import { useEffect, useState } from 'react';
 import AuthForm from '../../components/auth/AuthForm';
+
 import { check } from '../../modules/user';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,13 +58,13 @@ const RegisterForm = () => {
   // 회원가입 성공/실패 처리
   useEffect(() => {
     if (authError) {
-      // if (authError.response.status === 409) {
-      //   setError('이미 존재하는 계정명입니다.');
-      //   return;
-      // }
-      // // 기타 이유
-      // setError('회원가입 실패');
-      // return;
+      if (authError.response.status === 409) {
+        setError('이미 존재하는 계정명입니다.');
+        return;
+      }
+      // 기타 이유
+      setError('회원가입 실패');
+      return;
     }
 
     if (auth) {

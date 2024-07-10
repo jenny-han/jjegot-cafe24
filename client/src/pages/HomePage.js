@@ -5,13 +5,13 @@ import HeaderContainer from '../containers/common/HeaderContainer';
 import ImageCover from '../components/common/ImageCover';
 
 import coverImg from '../assets/homeCover.png';
-import contentbg from '../assets/home_content.png';
 import VerticalLine from '../components/common/VerticalLine';
 import Footer from '../components/common/Footer';
 
 const MainWrap = styled.div`
   height: auto;
 `;
+
 const ProcessBlock = styled.div`
   width: 100%;
   margin: 0;
@@ -36,12 +36,7 @@ const ContextArea = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const ContextBG = styled.img`
-  width: 100%;
-  position: absolute;
-  top: 20px;
-  left: 5%;
-`;
+
 const SubTitle = styled.span`
   font-size: 0.9em;
   color: #555;
@@ -122,7 +117,6 @@ const HomePage = () => {
           <ProcessBlock style={{ background: '#F8F8F8' }}>
             <ContextTitle>자재이곳에서 상품 판매를 시작해보세요!</ContextTitle>
             <ContextArea>
-              {/* <ContextBG src={contentbg} alt="content_background" /> */}
               <div>
                 <SubTitle>자재이곳이 처음이라면?</SubTitle>
                 <br />

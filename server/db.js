@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   database: process.env.REACT_APP_MYSQL_DATABASE,
   user: process.env.REACT_APP_MYSQL_USER_NAME,
   password: process.env.REACT_APP_MYSQL_PASSWORD,
-  port: 3306,
+  port: process.env.REACT_APP_MYSQL_PORT,
 })
 
 // MySQL 연결 테스트
