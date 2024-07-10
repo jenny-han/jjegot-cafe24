@@ -3,13 +3,20 @@ import logoWhite from '../../assets/jjegot_logo_w.png';
 
 const FooterBlock = styled.div`
   width: 100%;
-  background: black;
-  height: 100px;
+  background: #2a2a2a;
   position: relative;
-  transform: translateY(-100%);
+  bottom: 0;
+  padding: 20px;
 `;
 const FooterLogo = styled.img`
-  width: 20%;
+  width: 15%;
+  max-width: 150px;
+`;
+
+const FooterTitle = styled.div`
+  color: white;
+  font-size: 0.8em;
+  padding: 10px;
 `;
 
 const Footer = () => {
@@ -17,6 +24,9 @@ const Footer = () => {
     <FooterBlock>
       <div>
         <FooterLogo src={logoWhite} alt="logo" />
+        <FooterTitle>
+          Copyright &copy; 2024 자재이곳 All rights reserved.
+        </FooterTitle>
       </div>
     </FooterBlock>
   );

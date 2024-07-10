@@ -11,8 +11,6 @@ import Footer from '../components/common/Footer';
 
 const MainWrap = styled.div`
   height: auto;
-  min-height: 100%;
-  padding-bottom: 100px;
 `;
 const ProcessBlock = styled.div`
   width: 100%;
@@ -74,6 +72,46 @@ const StepTitle = styled.div`
 const StepDesc = styled.div`
   margin: 5p;
 `;
+
+const BottomBlock = styled.div`
+  padding: 30px;
+  text-align: left;
+  background-color: #1a56ce;
+  margin: 40px 0;
+  margin-right: 10%;
+  border-radius: 0 20px 20px 0;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const BottomTitle = styled.div`
+  font-size: 1.5em;
+  font-weight: 700;
+`;
+
+const BottomContents = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1em;
+`;
+
+const BottomButton = styled.div`
+  width: 220px;
+  max-width: 30%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: #1a56ce;
+  background-color: white;
+  font-weight: bolder;
+  font-size: 1.3em;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
+
 const HomePage = () => {
   return (
     <>
@@ -108,16 +146,18 @@ const HomePage = () => {
               </StepBox>
             </ContextArea>
           </ProcessBlock>
-          <div>
-            <div>
-              <div>온라인신청</div>
+          <BottomBlock>
+            <BottomContents>
+              <BottomTitle>온라인신청</BottomTitle>
               <p>
                 언제 어디서나 <br />
                 빠르게 시작할 수 있어요
               </p>
-            </div>
-          </div>
+            </BottomContents>
+            <BottomButton>입점신청</BottomButton>
+          </BottomBlock>
         </div>
+        <Footer />
       </MainWrap>
     </>
   );
